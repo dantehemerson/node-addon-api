@@ -17,7 +17,8 @@ Value AddPropertyAndGetFromGlobal(const CallbackInfo& info) {
 Object InitGlobalTest(Env env) {
   Object exports = Object::New(env);
 
-  exports["AddPropertyAndGetFromGlobal"] = Function::New(env, AddPropertyAndGetFromGlobal);
+  exports["AddPropertyAndGetFromGlobal"] =
+      Function::New(env, AddPropertyAndGetFromGlobal);
 
   return exports;
 }

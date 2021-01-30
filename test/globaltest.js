@@ -8,9 +8,15 @@ test(require(`./build/${buildType}/binding_noexcept.node`));
 
 function test(binding) {
   const {
-    AddPropertyAndGetFromGlobal
+    AddPropertyAndGetFromGlobal,
+    GetGlobalVariableByKey
   } = binding.globaltest;
 
-  assert.strictEqual(AddPropertyAndGetFromGlobal("a", "hola"), "hola");
+  const testValue = "test-value";
+  assert.strictEqual(AddPropertyAndGetFromGlobal("the-key", testValue), testValue);
+
+
+  global.globalVariable = "global-variable";
+  assert.strictEqual(GetGlobalVariableByKey("globalVariable"), globalVariable);
 }
 

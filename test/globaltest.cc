@@ -14,11 +14,21 @@ Value AddPropertyAndGetFromGlobal(const CallbackInfo& info) {
   return global.Get(static_cast<napi_value>(key));
 }
 
+Value GetGlobalVariableByKey(const CallbackInfo& info) {
+  auto global = info.Env().Global();
+
+  String key = info[0].As<String>();
+
+  return global.Get(static_cast<napi_value>(key));
+}
+
 Object InitGlobalTest(Env env) {
   Object exports = Object::New(env);
 
   exports["AddPropertyAndGetFromGlobal"] =
       Function::New(env, AddPropertyAndGetFromGlobal);
+  exports["GetGlobalVariableByKey"] =
+      Function::New(env, GetGlobalVariableByKey);
 
   return exports;
 }

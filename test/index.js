@@ -95,6 +95,7 @@ if (napiVersion < 4) {
 
 if (napiVersion < 5) {
   testModules.splice(testModules.indexOf('date'), 1);
+  testModules.splice(testModules.indexOf('globaltest'), 1);
 }
 
 if (napiVersion < 6) {

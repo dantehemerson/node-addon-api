@@ -27,6 +27,7 @@ Object InitCallbackScope(Env env);
 #endif
 #if (NAPI_VERSION > 4)
 Object InitDate(Env env);
+Object InitGlobalTest(Env env);
 #endif
 Object InitDataView(Env env);
 Object InitDataViewReadWrite(Env env);
@@ -88,6 +89,7 @@ Object Init(Env env, Object exports) {
 #endif
 #if (NAPI_VERSION > 4)
   exports.Set("date", InitDate(env));
+  exports.Set("globaltest", InitGlobalTest(env));
 #endif
   exports.Set("buffer", InitBuffer(env));
 #if (NAPI_VERSION > 2)
